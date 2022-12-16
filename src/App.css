@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+.font-cascadia {
+  font-family: "Cascadia code", Consolas, "Courier New", monospace;
+}
+.font-roboto {
+  font-family: "Roboto", "u-sans-serif";
+}
+
+.color-bg-dark {
+  background-color: rgb(33 30 30);
+}
+.colour-text-dark {
+  color: rgb(33 30 30);
+}
+.dark .dark\:color-bg-dark {
+  background-color: rgb(33 30 30);
+}
+.dark .dark\:color-text-dark {
+  color: rgb(33 30 30);
+}
+
+.shadow-outer {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px 5px;
+}
+@media (min-width: 1024px) {
+  .lg\:shadow-outer {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px 5px;
+  }
+  
+}
+
+.arrow-up {
+  animation: upArrow 1000ms ease-in-out infinite;
+}
+
+@keyframes upArrow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* .item-project:nth-child(3n),
+.item-project:nth-child(3n) img{
+  height: 600px;
+} */
