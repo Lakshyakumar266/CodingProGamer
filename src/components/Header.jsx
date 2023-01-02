@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import logo from './../logo.svg'
 
 function Header() {
@@ -7,10 +8,10 @@ function Header() {
     return (
         <>
             <nav className="flex bg-gray-100 dark:bg-gray-800 items-center justify-between flex-wrap p-4 px-5 shadow">
-                <div className="flex items-center flex-shrink-0 text-white mr-6">
+                <Link to="/" className="flex items-center flex-shrink-0 text-white mr-6">
                     <img src={logo} alt="logo" className='fill-current h-10 w-10 mr-2' />
                     <span className="hidden lg:block font-cascadia text-lg tracking-tight text-gray-600 dark:text-gray-200">CodingProGamer.in</span>
-                </div>
+                </Link>
                 <div className="block lg:hidden">
                     <button className="flex items-center px-3 py-2 border rounded text-gray-600 border-zinc-600 hover:text-gray-600 hover:border-gray-600 dark:border-zinc-400 dark:text-gray-500" onClick={() => setNavbar(!navbar)}>
                         {navbar ? (
@@ -46,18 +47,18 @@ function Header() {
                 </div>
                 <div className={`w-full block flex-grow lg:flex lg:w-auto lg:m-auto lg:justify-end lg:text-end ${navbar ? "block" : "hidden"}`} >
                     <div className="text-lg font-normal font-roboto lg:flex-grow text-lg px-5">
-                        <a href="/" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
+                        <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
                             Home
-                        </a>
-                        <a href="/blogs" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
+                        </Link>
+                        <Link to="/blogs" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
                             Blogs
-                        </a>
-                        <a href="/projects" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
+                        </Link>
+                        <Link to="/projects" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
                             Projects
-                        </a>
-                        <a href="/contact" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
+                        </Link>
+                        <Link to="/contact" className="block mt-4 lg:inline-block lg:mt-0 dark:text-gray-100 text-gray-600 hover:text-gray-400 dark:hover:text-gray-300 mr-5">
                             Contact
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </nav>
@@ -79,9 +80,9 @@ export default Header
 //             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
 //                 <div>
 //                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-//                         <a href="javascript:void(0)">
+//                         <Link to="javascript:void(0)">
 //                             <h2 className="text-2xl font-bold">LOGO</h2>
-//                         </a>
+//                         </Link>
 //                         <div className="md:hidden">
 //                             <button
 //                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -128,16 +129,16 @@ export default Header
 //                     >
 //                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
 //                             <li className="text-gray-600 hover:text-blue-600">
-//                                 <a href="javascript:void(0)">Home</a>
+//                                 <Link to="javascript:void(0)">Home</Link>
 //                             </li>
 //                             <li className="text-gray-600 hover:text-blue-600">
-//                                 <a href="javascript:void(0)">Blog</a>
+//                                 <Link to="javascript:void(0)">Blog</Link>
 //                             </li>
 //                             <li className="text-gray-600 hover:text-blue-600">
-//                                 <a href="javascript:void(0)">About US</a>
+//                                 <Link to="javascript:void(0)">About US</Link>
 //                             </li>
 //                             <li className="text-gray-600 hover:text-blue-600">
-//                                 <a href="javascript:void(0)">Contact US</a>
+//                                 <Link to="javascript:void(0)">Contact US</Link>
 //                             </li>
 //                         </ul>
 //                     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function BlogPrev(props) {
   return (
@@ -16,10 +17,10 @@ function BlogPrev(props) {
               Members only
             </p> */}
             <div className="text-gray-900 dark:text-gray-400 font-bold text-xl mb-2 capitalize">{props.title}</div>
-            <a href={props.link} className="text-gray-700 text-base dark:text-gray-500">{props.description}
-            </a>
+            <Link to={props.link} className="text-gray-700 text-base dark:text-gray-500">{props.description}
+            </Link>
           </div>
-          <a href={props.link} className='underline text-gray-800 dark:text-gray-500 mb-1 font-semibold'>Read more...</a>
+          <Link to={props.link} className='underline text-gray-800 dark:text-gray-500 mb-1 font-semibold'>Read more...</Link>
           <div className="flex items-center text-gray-600">
             <span className='datePost'>{props.datetime}</span>
             &nbsp;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,6 +14,7 @@ import Blogs from './components/blogs/Blogs';
 import NotFound from './components/home/NotFound';
 import Projects from './components/projects/Projects';
 import Contact from './components/home/Contact';
+import Dashboard from './components/admin/Dashboard';
 
 function App() {
   const [Theme, setTheme] = useState('')
@@ -49,6 +49,8 @@ function App() {
           <Header />
 
           <Routes>
+            <Route exact path="/dashboard/:task" element={<Dashboard />} />
+
             <Route exact path="/blogs" element={<Blogs />} />
 
             <Route exact path="/projects" element={<Projects />} />

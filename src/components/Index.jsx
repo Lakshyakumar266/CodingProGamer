@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
 import BlogPrev from './blogs/BlogPrev'
+import { Link } from 'react-router-dom'
 
 import Logo from './../logo.svg'
 import './../App.css'
@@ -144,9 +144,9 @@ function Index(props) {
                     <div className="left justify-items-start lg:m-4 text-center lg:text-left pt-2 lg:p-0">
                         <h2 className='text-3xl lg:text-5xl mt-5 font-light lg:pb-9'>Coding ProGamer</h2>
                         <div className="btns mt-6 lg:mt-9">
-                            <a href='/' className="BlogsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Blogs</a>
+                            <Link to='/' className="BlogsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Blogs</Link>
 
-                            <a href='/' className="ProjectsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Projects</a>
+                            <Link to='/' className="ProjectsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Projects</Link>
                         </div>
                     </div>
                     {/* Only For Pc */}
@@ -178,7 +178,7 @@ function Index(props) {
                                                         (Coding ProGamer)
                                                     </p>
                                                 </h3>
-                                                <a href={SocialLinks['youtube']} className="border border-red-600 bg-red-600 text-neutral-100 rounded-md px-4 py-1 transition duration-300 ease hover:bg-red-500 focus:outline-none focus:ring">Follow Now</a>
+                                                <Link to={SocialLinks['youtube']} className="border border-red-600 bg-red-600 text-neutral-100 rounded-md px-4 py-1 transition duration-300 ease hover:bg-red-500 focus:outline-none focus:ring">Follow Now</Link>
                                             </div>
 
                                         </div>
@@ -204,7 +204,7 @@ function Index(props) {
                                                         (CodingProGamer)
                                                     </p>
                                                 </h3>
-                                                <a href={SocialLinks['instagram']} className="border border-red-600 bg-[#E1306C] text-neutral-100 rounded-md px-4 py-1 transition duration-300 ease hover:bg-pink-500 focus:outline-none focus:ring">Follow Now</a>
+                                                <Link to={SocialLinks['instagram']} className="border border-red-600 bg-[#E1306C] text-neutral-100 rounded-md px-4 py-1 transition duration-300 ease hover:bg-pink-500 focus:outline-none focus:ring">Follow Now</Link>
                                             </div>
 
                                         </div>
@@ -230,7 +230,7 @@ function Index(props) {
                                                         (Lakshya Kumar)
                                                     </p>
                                                 </h3>
-                                                <a href={SocialLinks['instagram']} className="border border-blue-800 bg-[#0077b5] text-neutral-100 rounded-md px-4 py-1 transition duration-300 ease hover:bg-[#00a0dc] focus:outline-none focus:ring">Follow Now</a>
+                                                <Link to={SocialLinks['instagram']} className="border border-blue-800 bg-[#0077b5] text-neutral-100 rounded-md px-4 py-1 transition duration-300 ease hover:bg-[#00a0dc] focus:outline-none focus:ring">Follow Now</Link>
                                             </div>
 
                                         </div>
@@ -253,7 +253,7 @@ function Index(props) {
 
                             <div className="my-4">
 
-                                <a href='/' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl my-4">Load More...</a>
+                                <Link to='/' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl my-4">Load More...</Link>
                             </div>
                         </div>
 
@@ -273,14 +273,14 @@ function Index(props) {
                                             </p>
                                         </div>
                                         <div className="p-6">
-                                            <a href={elem.link} className="px-3 py-2 text-md font-semibold text-gray-700 dark:text-gray-400 mr-2 mb-4 underline">Read More...</a>
+                                            <Link to={elem.link} className="px-3 py-2 text-md font-semibold text-gray-700 dark:text-gray-400 mr-2 mb-4 underline">Read More...</Link>
                                         </div>
                                     </div>
 
                                 ))}
                                 <div className="my-4">
 
-                                    <a href='/' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-md my-4">Load More...</a>
+                                    <Link to='/' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-md my-4">Load More...</Link>
 
                                 </div>
 
