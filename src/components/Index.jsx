@@ -15,6 +15,31 @@ function Index(props) {
     const [Projects, setProjects] = useState([])
 
     useEffect(() => {
+
+        let request = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+        };
+        fetch('/blog/list', request)
+            .then(response => response.json())
+            .then(data => setBlogs(data["response"]["data"].slice(0, 5)));
+    }, [])
+
+    useEffect(() => {
+        let request = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+        };
+        fetch('/project/list', request)
+            .then(response => response.json())
+            .then(data => setProjects(data["response"]["data"].slice(0, 4)));
+    }, [])
+
+
+
+    useEffect(() => {
         setSocialLinks({
             youtube: "/",
             instagram: "/",
@@ -37,78 +62,6 @@ function Index(props) {
                 desc: 'Read My Blogs that must help you in future, My experience in a blog.'
             }
         ])
-
-        setProjects([
-            {
-                name: "JARVIS",
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-                link: "/"
-            },
-            {
-                name: "Cardia",
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-                link: "/"
-            },
-            {
-                name: "Simple Website template",
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-                link: "/"
-            },
-            {
-                name: "React Website Giver",
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-                link: "/"
-            }
-        ])
-
-        setBlogs([
-            {
-                name: "Sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-                description: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto.",
-                datetime: "30/09/2022",
-                id: "153",
-                words: "18,090",
-                promo: "https://picsum.photos/200/300",
-                link: "/"
-            },
-            {
-                name: "qui est esse",
-                description: "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla.",
-                datetime: "30/09/2022",
-                id: "153",
-                words: "18,090",
-                promo: "https://picsum.photos/300/300",
-                link: "/"
-            },
-            {
-                name: "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-                description: "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut.",
-                datetime: "30/09/2022",
-                id: "153",
-                words: "18,090",
-                promo: "https://picsum.photos/300/400",
-                link: "/"
-            },
-            {
-                name: "eum et est occaecati",
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-                datetime: "30/09/2022",
-                id: "153",
-                words: "18,090",
-                promo: "https://picsum.photos/400/400",
-                link: "/"
-            },
-            {
-                name: "dolorem eum magni eos aperiam quia",
-                description: "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae.",
-                datetime: "30/09/2022",
-                id: "153",
-                words: "18,090",
-                promo: "https://picsum.photos/500/400",
-                link: "/"
-            }
-        ])
-
 
         if (props.theme === 'light') {
             document.getElementById('themeChange').checked = false
@@ -144,9 +97,9 @@ function Index(props) {
                     <div className="left justify-items-start lg:m-4 text-center lg:text-left pt-2 lg:p-0">
                         <h2 className='text-3xl lg:text-5xl mt-5 font-light lg:pb-9'>Coding ProGamer</h2>
                         <div className="btns mt-6 lg:mt-9">
-                            <Link to='/' className="BlogsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Blogs</Link>
+                            <Link to='/blogs' className="BlogsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Blogs</Link>
 
-                            <Link to='/' className="ProjectsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Projects</Link>
+                            <Link to='/projects' className="ProjectsLink border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl">Projects</Link>
                         </div>
                     </div>
                     {/* Only For Pc */}
@@ -245,15 +198,15 @@ function Index(props) {
                         <div className="ListBlogs lg:col-span-2 col-span-3">
                             <h3 className='text-2xl text-gray-700 pb-6 dark:text-gray-300 font-roboto'>Featured Blogs</h3>
                             {/* Blogs */}
-                            {Blogs.map((elem, index) => (
+                            {Blogs.map((element, index) => (
 
-                                <BlogPrev key={index} title={elem.name} description={elem.description} datetime={elem.datetime} id={elem.id} length={elem.words} promo={elem.promo} link={elem.link} />
+                                <BlogPrev key={index} title={element.title} description={element.about} datetime={element.datetime} id={element.id} length={500} promo={element.image} link={element.slug} />
 
                             ))}
 
                             <div className="my-4">
 
-                                <Link to='/' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl my-4">Load More...</Link>
+                                <Link to='/blogs' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-xl my-4">Load More...</Link>
                             </div>
                         </div>
 
@@ -263,24 +216,24 @@ function Index(props) {
                             <h3 className='text-2xl text-gray-700 mb-4 dark:text-gray-300 '>Frequent Projects</h3>
 
                             <div className="projects">
-                                {Projects.map((elem, index) => (
+                                {Projects.map((element, index) => (
 
                                     <div key={index} className="rounded shadow-outer bg-gray-100 m-2 dark:bg-gray-700">
                                         <div className="px-6 py-4">
-                                            <div className="font-bold text-xl mb-6 mt-2 text-center text-gray-800 dark:text-gray-400">{elem.name}</div>
+                                            <div className="font-bold text-xl mb-6 mt-2 text-center text-gray-800 dark:text-gray-400">{element.title}</div>
                                             <p className="text-gray-700 text-base dark:text-gray-500">
-                                                {elem.description}
+                                                {element.content.substring(0, 120)}...
                                             </p>
                                         </div>
                                         <div className="p-6">
-                                            <Link to={elem.link} className="px-3 py-2 text-md font-semibold text-gray-700 dark:text-gray-400 mr-2 mb-4 underline">Read More...</Link>
+                                            <Link to={`/project/${element.slug}`} className="px-3 py-2 text-md font-semibold text-gray-700 dark:text-gray-400 mr-2 mb-4 underline">Read More...</Link>
                                         </div>
                                     </div>
 
                                 ))}
                                 <div className="my-4">
 
-                                    <Link to='/' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-md my-4">Load More...</Link>
+                                    <Link to='/projects' className="loadMore border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-4 py-2 m-2 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-md my-4">Load More...</Link>
 
                                 </div>
 

@@ -51,11 +51,13 @@ function UploadProject() {
                                 <div className="w-full px-3 sm:w-1/2">
                                     <div className="mb-2">
                                         <input className="block w-full mb-2 text-md text-gray-900 border p-1 rounded-sm cursor-pointer bg-zinc-100 dark:text-zinc-400 focus:outline-none dark:border-gray-600 dark:placeholder-zinc-400" id="image_short" type="file" />
+                                        <input type="hidden" id="imageShortName" name="ImageShortName"/>
                                     </div>
                                 </div>
                                 <div className="w-full px-3 sm:w-1/2">
                                     <div className="mb-2">
                                         <input className="block w-full mb-2 text-md text-gray-900 border p-1 rounded-sm cursor-pointer bg-zinc-100 dark:text-zinc-400 focus:outline-none dark:border-gray-600 dark:placeholder-zinc-400" id="image_large" type="file"  />
+                                        <input type="hidden" id="imageLargeName" name="imageLargeName" />
                                     </div>
                                 </div>
                                 <button

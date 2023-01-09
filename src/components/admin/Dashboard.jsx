@@ -12,10 +12,9 @@ function Dashboard() {
     const { task } = params;
 
     let taskArr = task.split('_');
-    console.log(taskArr);
 
     return (
-        <>
+        <div className='bg-gray-200 dark:bg-transparent'>
             <div className="container lg:flex">
 
                 <aside aria-label="Sidebar">
@@ -72,7 +71,7 @@ function Dashboard() {
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 

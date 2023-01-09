@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import {
   Table,
@@ -14,15 +14,27 @@ import { Link } from 'react-router-dom';
 function ListProject(props) {
 
   const [search, setSearch] = useState('');
+  const [List, setList] = useState([])
 
+  
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
 
-  const list = props.data;
+  
+  useEffect(() => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+    };
+    fetch('/project/list', requestOptions)
+      .then(response => response.json())
+      .then(data => setList(data["response"]["data"]));
+  }, []);
 
   const data = {
-    nodes: list.filter((item) =>
+    nodes: List.filter((item) =>
       item.title.toLowerCase().includes(search.toLowerCase())
     ),
   };
@@ -62,9 +74,9 @@ function ListProject(props) {
                   {/* id title content links datetime */}
                 </Header>
                 <Body>
-                  {tableList.map((item) => (
+                  {tableList.map((item, index) => (
                     <Row className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={item.id} item={item}>
-                      <Cell className="!px-6 !py-4">{item.id}</Cell>
+                      <Cell className="!px-6 !py-4">{index+1}</Cell>
                       <Cell className="!px-6 !py-4">{item.title}</Cell>
                       <Cell className="!px-6 !py-4">{item.content}</Cell>
                       <Cell className="!px-6 !py-4">{item.links === 1 ? 'YES' : 'NO'}</Cell>

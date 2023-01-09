@@ -15,12 +15,12 @@ import NotFound from './components/home/NotFound';
 import Projects from './components/projects/Projects';
 import Contact from './components/home/Contact';
 import Dashboard from './components/admin/Dashboard';
+import ProjectSingle from './components/projects/ProjectSingle';
+import BlogSingle from './components/blogs/BlogSingle';
 
 function App() {
   const [Theme, setTheme] = useState('')
   useEffect(() => {
-
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark')
       setTheme('dark')
@@ -28,15 +28,6 @@ function App() {
       document.documentElement.classList.remove('dark')
       setTheme('light')
     }
-
-    // Whenever the user explicitly chooses light mode
-    // localStorage.theme = 'light'
-
-    // Whenever the user explicitly chooses dark mode
-    // localStorage.theme = 'dark'
-
-    // // Whenever the user explicitly chooses to respect the OS preference
-    // localStorage.removeItem('theme')
   }, [])
 
 
@@ -44,16 +35,20 @@ function App() {
   return (
     <>
       <Router>
-        <div className='dark:bg-zinc-900'>
+        <div className='dark:bg-zinc-900' id='mainContainer'>
 
           <Header />
 
           <Routes>
             <Route exact path="/dashboard/:task" element={<Dashboard />} />
 
+
             <Route exact path="/blogs" element={<Blogs />} />
+            <Route exact path="/blogpost/:slug" element={<BlogSingle />} />
+
 
             <Route exact path="/projects" element={<Projects />} />
+            <Route exact path="/project/:slug" element={<ProjectSingle />} />
 
             <Route exact path="/contact" element={<Contact />} />
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 function EditProject(props) {
-  console.log(props.id);
+  
   return (
     <div className="flex items-center justify-center p-12">
       <div className="mx-auto w-full max-w-[550px]">

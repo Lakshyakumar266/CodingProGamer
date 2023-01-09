@@ -7,7 +7,7 @@ function Header() {
 
     return (
         <>
-            <nav className="flex bg-gray-100 dark:bg-gray-800 items-center justify-between flex-wrap p-4 px-5 shadow">
+            <nav id='navigation' className="flex bg-gray-100 dark:bg-gray-800 items-center justify-between flex-wrap p-4 px-5 shadow">
                 <Link to="/" className="flex items-center flex-shrink-0 text-white mr-6">
                     <img src={logo} alt="logo" className='fill-current h-10 w-10 mr-2' />
                     <span className="hidden lg:block font-cascadia text-lg tracking-tight text-gray-600 dark:text-gray-200">CodingProGamer.in</span>
