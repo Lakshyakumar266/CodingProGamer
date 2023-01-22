@@ -51,6 +51,10 @@
   }
 }
 
+.blockquote-footer::before{
+  content: "— ";
+}
+
 
 /* .item-project:nth-child(3n),
 .item-project:nth-child(3n) img{

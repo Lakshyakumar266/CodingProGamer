@@ -23,7 +23,7 @@ function Index(props) {
         };
         fetch('/blog/list', request)
             .then(response => response.json())
-            .then(data => setBlogs(data["response"]["data"].slice(0, 5)));
+            .then(data => setBlogs(data["response"]["data"].reverse().slice(0, 5)));
     }, [])
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function Index(props) {
         };
         fetch('/project/list', request)
             .then(response => response.json())
-            .then(data => setProjects(data["response"]["data"].slice(0, 4)));
+            .then(data => setProjects(data["response"]["data"].reverse().slice(0, 5)));
     }, [])
 
 
@@ -213,7 +213,7 @@ function Index(props) {
                         <div className="ListProjects bg-gray-200 p-4 lg:col-span-1 col-span-3 dark:bg-zinc-800">
 
                             {/* Projects */}
-                            <h3 className='text-2xl text-gray-700 mb-4 dark:text-gray-300 '>Frequent Projects</h3>
+                            <h3 className='text-2xl text-gray-700 mb-4 dark:text-gray-300 '>Latest Projects</h3>
 
                             <div className="projects">
                                 {Projects.map((element, index) => (

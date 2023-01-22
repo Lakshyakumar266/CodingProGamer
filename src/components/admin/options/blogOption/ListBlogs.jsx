@@ -79,7 +79,7 @@ function ListBlogs(props) {
                       <Cell className="!px-6 !py-4">{item.about}</Cell>
                       <Cell className="!px-6 !py-4">{item.datetime}</Cell>
                       <Cell className="!px-6 !py-4">
-                        <Link to={`/dashboard/blog_edit_${item.id}`} id={`Blog_${item.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                        <Link to={`/dashboard/blog_edit_${item.slug}`} id={`Blog_${item.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                       </Cell>
                     </Row>
                   ))}

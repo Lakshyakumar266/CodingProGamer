@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Loading from '../utils/svgs/Loading'
 import BlogPrev from './BlogPrev'
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Link } from 'react-router-dom';
 
 
 function Blogs() {
@@ -31,7 +32,6 @@ function Blogs() {
         setTimeout(() => {
             setBlogs(Blogs.concat(BlogsAll.slice(LoadLength, (LoadLength + 5))))
             setLoadLength(LoadLength + 5)
-            console.log(LoadLength, BlogsAll.length);
         }, 300);
     }
 
@@ -40,11 +40,11 @@ function Blogs() {
             <div className="container">
                 <div className="filters lg:m-2 p-2 lg:flex justify-between">
                     <div className="filterTime text-gray-600 font-semibold m-2">
-                        <button className='text-gray-500 hover:text-gray-400 ease-in'>Latest {'>'} Oldest</button>
+                        <Link to="/blogs?filter=oldest" className='text-gray-500 hover:text-gray-400 ease-in'>Latest {'>'} Oldest</Link>
                         &nbsp;
                         /
                         &nbsp;
-                        <button className='text-gray-500 hover:text-gray-400 ease-in'>A - Z {'>'} Z - A</button>
+                        <Link to="/blogs?filter=a-z" className='text-gray-500 hover:text-gray-400 ease-in'>A - Z {'>'} Z - A</Link>
                     </div>
                     <div className="search m-2">
 
@@ -76,7 +76,6 @@ function Blogs() {
                             loader={<Loading />}
                         >
                             {Blogs.map((element, index) => {
-                                // console.log(Blogs);
                                 return (
                                     <BlogPrev key={index} title={element.title} description={element.about} datetime={element.datetime} id={element.id} words="12,364" promo={element.image} link={element.slug} />
                                 )

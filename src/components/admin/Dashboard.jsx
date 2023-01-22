@@ -50,6 +50,7 @@ function Dashboard() {
                                     </svg>
                                 </Link>
                             </li>
+                            
                         </ul>
                     </div>
                 </aside>

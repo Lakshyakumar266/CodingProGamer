@@ -1,6 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify';
+import Alert from '../Alert';
 
 function Contact() {
+
+  const [Form, setForm] = useState({
+    message: ''
+  })
+
+  const handleInput = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    setForm((prev) => {
+      return { ...prev, [name]: value }
+    })
+  }
+
+  const handleSubmit = (event) => {
+
+    fetch('/message/add', {
+      method: 'POST',
+      body: JSON.stringify(Form),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data['response']['data']);
+        setForm({
+          message: ''
+        })
+        toast.success('Message Sent successfully!', { theme: "colored", autoClose: 1000 });
+        // navigate(`/project/${Form.slug}`)
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+    console.log(Form);
+    event.preventDefault();
+  }
+
   return (
     <>
       <div className="lg:m-4 text-center rounded lg:shadow-outer">
@@ -25,9 +66,11 @@ function Contact() {
 
           <div className="messageBox shadow-outer rounded m-4 dark:bg-zinc-800">
             <div className="mb-3 m-4 text-left">
-              <textarea className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none shadow-outer min-w-[30vw] min-h-[20vh] dark:bg-gray-700 dark:placeholder-gray-500 dark:text-white" style={{ resize: "none" }} id="contactMessage" rows="5" placeholder="Enter Your Message here..."></textarea>
+              <form action="" method='POST' onSubmit={handleSubmit}>
+                <textarea className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none shadow-outer min-w-[30vw] min-h-[20vh] dark:bg-gray-700 dark:placeholder-gray-500 dark:text-white" style={{ resize: "none" }} id="contactMessage" rows="5" placeholder="Enter Your Message here..." name='message' value={Form.message} onChange={handleInput}></textarea>
 
-              <input type="submit" className='border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-8 py-1 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-md m-4 mx-0 cursor-pointer' value="SEND" />
+                <input type="submit" className='border border-neutral-900 color-bg-dark text-neutral-100 rounded-md px-8 py-1 transition duration-300 ease hover:bg-neutral-800 focus:outline-none focus:ring dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 shadow-outer text-md m-4 mx-0 cursor-pointer' value="SEND" />
+              </form>
             </div>
           </div>
 

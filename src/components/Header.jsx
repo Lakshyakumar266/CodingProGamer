@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from './../logo.svg'
+import Alert from './Alert';
 
 function Header() {
     const [navbar, setNavbar] = useState(false);
@@ -62,6 +63,7 @@ function Header() {
                     </div>
                 </div>
             </nav>
+            <Alert />
         </>
     )
 }

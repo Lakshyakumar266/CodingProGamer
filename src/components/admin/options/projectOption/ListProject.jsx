@@ -79,12 +79,12 @@ function ListProject(props) {
                       <Cell className="!px-6 !py-4">{index+1}</Cell>
                       <Cell className="!px-6 !py-4">{item.title}</Cell>
                       <Cell className="!px-6 !py-4">{item.content}</Cell>
-                      <Cell className="!px-6 !py-4">{item.links === 1 ? 'YES' : 'NO'}</Cell>
+                      <Cell className="!px-6 !py-4">{item.links ? 'YES' : 'NO'}</Cell>
                       <Cell className="!px-6 !py-4">
                         {item.datetime}
                       </Cell>
                       <Cell className="!px-6 !py-4">
-                        <Link to={`/dashboard/project_edit_${item.id}`} id={`Project_${item.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                        <Link to={`/dashboard/project_edit_${item.slug}`} id={`Project_${item.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                       </Cell>
                     </Row>
                   ))}
